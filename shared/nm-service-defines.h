@@ -55,5 +55,6 @@
 #define NM_OPENCONNECT_KEY_MCACERT "mcacert"
 #define NM_OPENCONNECT_KEY_MCAKEY "mcakey"
 #define NM_OPENCONNECT_KEY_MCA_PASS "mca_key_pass"
+#define NM_OPENCONNECT_KEY_NO_XMLPOST "no-xmlpost"
 
 #endif /* __NM_SERVICE_DEFINES_H__ */

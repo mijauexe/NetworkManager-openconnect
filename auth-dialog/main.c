@@ -1231,6 +1231,7 @@ static int get_config (auth_ui_data *ui_data,
 	char *token_mode;
 	char *token_secret;
 	char *protocol;
+	char *no_xmlpost;
 
 	hostname = g_hash_table_lookup (options, NM_OPENCONNECT_KEY_GATEWAY);
 	if (!hostname) {
@@ -1296,6 +1297,10 @@ static int get_config (auth_ui_data *ui_data,
 	reported_os = g_hash_table_lookup (options, NM_OPENCONNECT_KEY_REPORTED_OS);
 	if (reported_os && reported_os[0])
 		openconnect_set_reported_os(vpninfo, reported_os);
+
+	no_xmlpost = g_hash_table_lookup (options, NM_OPENCONNECT_KEY_NO_XMLPOST);
+	if (no_xmlpost && !strcmp(no_xmlpost, "yes"))
+		openconnect_set_xmlpost(vpninfo, 0);
 
 	proxy = g_hash_table_lookup (options, NM_OPENCONNECT_KEY_PROXY);
 	if (proxy && proxy[0] && openconnect_set_http_proxy(vpninfo, OC3DUP (proxy)))
